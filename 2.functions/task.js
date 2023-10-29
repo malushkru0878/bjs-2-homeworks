@@ -1,24 +1,44 @@
-function getArrayParams(...arr) {
+// Задание 1
+function getArrayParams(arr) {
+  let min, max, sum, avg;
+  min = Infinity;
+  max = - Infinity;
+  sum = 0;
+
+  for (let number of arr) {
+    if (number < min) {
+      min = number
+    }
+    if (number > max) {
+      max = number;
+    }
+    sum += number;
+  }
+  avg = parseFloat((sum / arr.length).toFixed(2));
 
   return { min: min, max: max, avg: avg };
 }
 
-function summElementsWorker(...arr) {
-
+// Задание 2
+function worker(arr) {
+  let sum = 0;
+  for (let number of arr) {
+    sum += number;
+  }
+  return sum;
 }
 
-function differenceMaxMinWorker(...arr) {
-
+function makeWork(arrOfArr, func) {
+  let max = - Infinity;
+  for (let arr of arrOfArr) {
+    if (func(arr) > max) {
+      max = func(arr)
+    }
+  }
+  return max;
 }
 
-function differenceEvenOddWorker(...arr) {
-
-}
-
-function averageEvenElementsWorker(...arr) {
-
-}
-
-function makeWork (arrOfArr, func) {
-
+// Задание 3
+function worker2(arr) {
+  return getArrayParams(arr).max - getArrayParams(arr).min;
 }
